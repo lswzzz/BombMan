@@ -1,0 +1,328 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &113722
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 416646}
+  - 212: {fileID: 21275590}
+  - 95: {fileID: 9583310}
+  - 114: {fileID: 11404262}
+  - 114: {fileID: 11492940}
+  - 114: {fileID: 11440344}
+  - 114: {fileID: 11495642}
+  - 114: {fileID: 11402848}
+  - 114: {fileID: 11414352}
+  - 114: {fileID: 11414104}
+  m_Layer: 0
+  m_Name: monster
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &416646
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 113722}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 93.179115, y: -360, z: -10}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+--- !u!95 &9583310
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 113722}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 376474601f6553a45934c13229d8cf26, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &11402848
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 113722}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1167d51137b75b4992cc91c88e61239, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 0
+  maxSpeed: 0
+  state: 0
+  direction: 0
+--- !u!114 &11404262
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 113722}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83725d9d15116584c9aa93237c936f7e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  trap1Time: 4
+  trap3Time: 2
+  blinkLevel: 0
+--- !u!114 &11414104
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 113722}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6271db74f93bc94f8be47125625ee0c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  behaviorTree: {fileID: 0}
+--- !u!114 &11414352
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 113722}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60c1a25c9fa137c4fbcd9d3bf22d1070, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startWhenEnabled: 1
+  pauseWhenDisabled: 0
+  restartWhenComplete: 0
+  logTaskChanges: 1
+  group: 0
+  resetValuesOnRestart: 0
+  externalBehavior: {fileID: 0}
+  mBehaviorSource:
+    behaviorName: Behavior
+    behaviorDescription: 
+    mTaskData:
+      types:
+      - BehaviorDesigner.Runtime.Tasks.EntryTask
+      - BehaviorDesigner.Runtime.Tasks.Selector
+      - BehaviorDesigner.Runtime.Tasks.Sequence
+      - BehaviorDesigner.Runtime.Tasks.Sequence
+      - CanMovement
+      - MovementTask
+      - BehaviorDesigner.Runtime.Tasks.Sequence
+      - CanAttack
+      - AttackPlayer
+      - BehaviorDesigner.Runtime.Tasks.Idle
+      parentIndex: ffffffff000000000100000002000000030000000300000002000000060000000600000001000000
+      startIndex: 000000000a00000015000000200000002b000000350000003f0000004a000000540000005e000000
+      variableStartIndex: 
+      JSONSerialization: 
+      fieldSerializationData:
+        typeName:
+        - Int32ID
+        - StringFriendlyName
+        - BooleanIsInstant
+        - Vector2NodeDataOffset
+        - StringNodeDataComment
+        - BooleanNodeDataIsBreakpoint
+        - BooleanNodeDataDisabled
+        - BooleanNodeDataCollapsed
+        - Int32NodeDataColorIndex
+        - List`1NodeDataWatchedFields
+        - Int32ID
+        - StringFriendlyName
+        - BooleanIsInstant
+        - Vector2NodeDataOffset
+        - StringNodeDataComment
+        - BooleanNodeDataIsBreakpoint
+        - BooleanNodeDataDisabled
+        - BooleanNodeDataCollapsed
+        - Int32NodeDataColorIndex
+        - List`1NodeDataWatchedFields
+        - AbortTypeabortType
+        - Int32ID
+        - StringFriendlyName
+        - BooleanIsInstant
+        - Vector2NodeDataOffset
+        - StringNodeDataComment
+        - BooleanNodeDataIsBreakpoint
+        - BooleanNodeDataDisabled
+        - BooleanNodeDataCollapsed
+        - Int32NodeDataColorIndex
+        - List`1NodeDataWatchedFields
+        - AbortTypeabortType
+        - Int32ID
+        - StringFriendlyName
+        - BooleanIsInstant
+        - Vector2NodeDataOffset
+        - StringNodeDataComment
+        - BooleanNodeDataIsBreakpoint
+        - BooleanNodeDataDisabled
+        - BooleanNodeDataCollapsed
+        - Int32NodeDataColorIndex
+        - List`1NodeDataWatchedFields
+        - AbortTypeabortType
+        - Int32ID
+        - StringFriendlyName
+        - BooleanIsInstant
+        - Vector2NodeDataOffset
+        - StringNodeDataComment
+        - BooleanNodeDataIsBreakpoint
+        - BooleanNodeDataDisabled
+        - BooleanNodeDataCollapsed
+        - Int32NodeDataColorIndex
+        - List`1NodeDataWatchedFields
+        - Int32ID
+        - StringFriendlyName
+        - BooleanIsInstant
+        - Vector2NodeDataOffset
+        - StringNodeDataComment
+        - BooleanNodeDataIsBreakpoint
+        - BooleanNodeDataDisabled
+        - BooleanNodeDataCollapsed
+        - Int32NodeDataColorIndex
+        - List`1NodeDataWatchedFields
+        - Int32ID
+        - StringFriendlyName
+        - BooleanIsInstant
+        - Vector2NodeDataOffset
+        - StringNodeDataComment
+        - BooleanNodeDataIsBreakpoint
+        - BooleanNodeDataDisabled
+        - BooleanNodeDataCollapsed
+        - Int32NodeDataColorIndex
+        - List`1NodeDataWatchedFields
+        - AbortTypeabortType
+        - Int32ID
+        - StringFriendlyName
+        - BooleanIsInstant
+        - Vector2NodeDataOffset
+        - StringNodeDataComment
+        - BooleanNodeDataIsBreakpoint
+        - BooleanNodeDataDisabled
+        - BooleanNodeDataCollapsed
+        - Int32NodeDataColorIndex
+        - List`1NodeDataWatchedFields
+        - Int32ID
+        - StringFriendlyName
+        - BooleanIsInstant
+        - Vector2NodeDataOffset
+        - StringNodeDataComment
+        - BooleanNodeDataIsBreakpoint
+        - BooleanNodeDataDisabled
+        - BooleanNodeDataCollapsed
+        - Int32NodeDataColorIndex
+        - List`1NodeDataWatchedFields
+        - Int32ID
+        - StringFriendlyName
+        - BooleanIsInstant
+        - Vector2NodeDataOffset
+        - StringNodeDataComment
+        - BooleanNodeDataIsBreakpoint
+        - BooleanNodeDataDisabled
+        - BooleanNodeDataCollapsed
+        - Int32NodeDataColorIndex
+        - List`1NodeDataWatchedFields
+        startIndex: 000000000100000002000000030000000400000005000000060000000700000008000000090000000a0000000b0000000c0000000d0000000e0000000f000000100000001100000012000000130000001400000015000000160000001700000018000000190000001a0000001b0000001c0000001d0000001e0000001f000000200000002100000022000000230000002400000025000000260000002700000028000000290000002a0000002b0000002c0000002d0000002e0000002f000000300000003100000032000000330000003400000035000000360000003700000038000000390000003a0000003b0000003c0000003d0000003e0000003f000000400000004100000042000000430000004400000045000000460000004700000048000000490000004a0000004b0000004c0000004d0000004e0000004f000000500000005100000052000000530000005400000055000000560000005700000058000000590000005a0000005b0000005c0000005d0000005e0000005f0000006000000061000000620000006300000064000000650000006600000067000000
+        dataPosition: 0000000004000000090000000a0000001200000012000000130000001400000015000000190000001d00000021000000290000002a0000003200000032000000330000003400000035000000390000003d00000041000000450000004e0000004f000000570000005700000058000000590000005a0000005e00000062000000660000006a00000072000000730000007b0000007b0000007c0000007d0000007e00000082000000860000008a0000008e0000009a0000009b000000a3000000a3000000a4000000a5000000a6000000aa000000ae000000b2000000bf000000c0000000c8000000c8000000c9000000ca000000cb000000cf000000d3000000d7000000df000000e0000000e8000000e8000000e9000000ea000000eb000000ef000000f3000000f7000000fb00000005010000060100000e0100000e0100000f010000100100001101000015010000190100001d0100002a0100002b01000033010000330100003401000035010000360100003a0100003e0100004201000046010000470100004f0100004f01000050010000510100005201000056010000
+        unityObjects: []
+        byteData: 00000000456e74727901000000000000000000000000000000000000000000000153656c6563746f720100000000000002430000000000000000000000000000000000000253657175656e6365410100000cc300000c430000000000000000000000000000020000000353657175656e636501000016c3000002430000000000000000000000000000000000000443616e204d6f76656d656e740100008cc20000f0420000000000000000000000000000054d6f76656d656e74205461736b0100008c420000f04200000000000000000000000000000653657175656e63650100000c4300000c430000000000000000000000000000000000000743616e2041747461636b0100008cc20000dc4200000000000000000000000000000841747461636b20506c6179657201000070420000dc4200000000000000000000000000000949646c650100006643000016430000000000000000000000
+        byteDataArray: 00000000456e74727901000000000000000000000000000000000000000100000053656c6563746f720100000000000002430000000000000000000000000000000200000053657175656e6365410100000cc300000c430000000000000000000000020000000300000053657175656e636501000016c3000002430000000000000000000000000000000400000043616e204d6f76656d656e740100008cc20000f0420000000000000000000000050000004d6f76656d656e74205461736b0100008c420000f04200000000000000000000000600000053657175656e63650100000c4300000c430000000000000000000000000000000700000043616e2041747461636b0100008cc20000dc4200000000000000000000000800000041747461636b20506c6179657201000070420000dc4200000000000000000000000900000049646c650100006643000016430000000000000000000000
+--- !u!114 &11440344
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 113722}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6421849e93674354b989794129918293, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  min: {x: 0, y: 0}
+  max: {x: 0, y: 0}
+--- !u!114 &11492940
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 113722}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b537b6f9f7eb64244b9dcc25dc7d222e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  min: {x: 0, y: 0}
+  max: {x: 0, y: 0}
+  leftoff: 20
+  rightoff: 20
+  downoff: 25
+  upoff: 15
+--- !u!114 &11495642
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 113722}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ebd682d59eaed7343920eafcd06cf8ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  min: {x: 0, y: 0}
+  max: {x: 0, y: 0}
+--- !u!212 &21275590
+SpriteRenderer:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 113722}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000e000000000000000, type: 0}
+  m_SubsetIndices: 
+  m_StaticBatchRoot: {fileID: 0}
+  m_UseLightProbes: 0
+  m_ReflectionProbeUsage: 0
+  m_ProbeAnchor: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 21300018, guid: 71c78e4263660104b94ea6a25d067864, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 113722}
+  m_IsPrefabParent: 1

@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2015
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BombMan.CSharp", "BombMan.CSharp.csproj", "{DDEB94BB-A9D9-EE1D-91D0-A64901BC7C7C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BombMan.CSharp.Editor", "BombMan.CSharp.Editor.csproj", "{3FCC7F4C-3010-ECC2-5BEC-6B096A3EE434}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DDEB94BB-A9D9-EE1D-91D0-A64901BC7C7C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DDEB94BB-A9D9-EE1D-91D0-A64901BC7C7C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DDEB94BB-A9D9-EE1D-91D0-A64901BC7C7C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DDEB94BB-A9D9-EE1D-91D0-A64901BC7C7C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3FCC7F4C-3010-ECC2-5BEC-6B096A3EE434}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3FCC7F4C-3010-ECC2-5BEC-6B096A3EE434}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3FCC7F4C-3010-ECC2-5BEC-6B096A3EE434}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3FCC7F4C-3010-ECC2-5BEC-6B096A3EE434}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

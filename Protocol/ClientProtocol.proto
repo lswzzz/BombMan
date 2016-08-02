@@ -1,0 +1,90 @@
+package proto.clientproto;
+
+//发送的真实数据，没办法就是这么挫，暂时这么用吧
+message ProtocolNetRequest {
+	required int32 cmd = 1;
+	optional ConnectToServer connectToServer = 2;
+	optional CreateRoom createRoom = 3;
+	optional GetRoomList getRoomList = 4;
+	optional JoinRoom joinRoom = 5;
+	optional ExitRoom exitRoom = 6;
+	optional RoomOwnerExit roomOwnerExit = 7;
+	optional RoomOwnerReadyStartGame roomOwnerReadyStartGame = 8;
+	optional RoomOwnerStartGame roomOwnerStartGame = 9;
+	//optional PlayerGameData playerGameData = 10;
+	optional GameResult gameResult = 10;
+	optional PlayerExitGame playerExitGame = 11;
+	optional PlayerReLoadScene playerReloadScene = 12;
+}
+
+//连接到服务器
+message ConnectToServer {
+	required string name = 1;
+}
+
+//数据类型为bytes的话表示的是服务器转发的数据，服务器不处理
+//创建房间的协议
+message CreateRoom {
+	required int32 fd = 1;
+	//客户端发送的角色名字 人数限制 房间名称
+	optional string roomOwner = 2;
+	optional int32 maxMan = 3;
+	optional string roomName = 4;
+}
+
+//获取房间列表
+message GetRoomList {
+	required int32 fd = 1;
+}
+
+//加入一个房间只能在游戏开始前 必须同时转发给其他玩家
+message JoinRoom {
+	required int32 fd = 1;
+	//当前选中房间房主的fd
+	optional int32 roomOwnerFd = 2;
+}
+
+//一个玩家退出房间 转发
+message ExitRoom {
+	required int32 fd = 1;
+	required int32 roomOwnerFd = 2;
+}
+
+//房主离开房间 解散该房间 转发
+message RoomOwnerExit {
+	required int32 fd = 1;
+}
+
+//房主按下开始游戏 等待服务器发送确认信息给房主并转发开始游戏信息给其他人
+message RoomOwnerReadyStartGame {
+	required int32 fd = 1;
+}
+
+//房主收到信息后等待2秒后，发送开始游戏信息给服务器，服务器收到后统一发送随机种子给所有玩家，所有玩家收到后直接开始游戏
+message RoomOwnerStartGame {
+	required int32 fd = 1;
+}
+
+//开始游戏后，游戏客户端会有一个主服务器负责将怪物的信息转发给其他客户端，
+//怪物的信息有transform和target
+//message PlayerGameData {
+//	required int32 fd = 1;
+//	optional bytes playerData = 3;
+//}
+
+//游戏结果
+//由主机判断
+//在主机判断boss死亡后等待两秒钟，然后发送这个数据给服务器，
+message GameResult {
+	required int32 fd = 1;
+	optional bool result = 2;
+}
+
+//玩家退出游戏
+message PlayerExitGame {
+	required int32 fd = 1;
+}
+
+message PlayerReLoadScene{
+	required int32 fd = 1;
+}

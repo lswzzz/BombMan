@@ -1,0 +1,69 @@
+﻿client 
+char cmd
+if cmd == 1,2,4,5,6
+int hasCode;
+unsigned int fd;
+1 startinfo
+2 response
+3 transform
+4 action
+5 state
+6 checktime
+startinfo
+port int
+transform length
+float posx float posy char direction char state
+//在transform中携带的state不需要返回
+action length
+char action
+if(action == ActionBubble)
+char row char col char power
+
+state length
+char state
+
+
+server
+char cmd
+if(cmd == 1,3, 4) int hashCode
+cmd == 1
+response 
+bool result 服务器知道客户端发送过来的数据对数据进行处理后返回结果
+
+cmd == 2
+transform length short
+int fd
+float posx float posy char direction char state
+//这个state是不需要返回的
+cmd == 3
+action length short
+int fd char action 
+action == ActionBubble
+char row char col char power;
+cmd == 4
+state length short
+int fd char state
+
+
+inline Socket
+server
+short size;
+char cmd 
+if cmd == 1
+string scenename
+int fd sceneowner;
+char playerCount;
+loop int fd;
+
+
+
+Tcp 21365
+inlien 21020
+
+Udp 21344
+inlien 
+
+
+lsof -i:21365
+
+kill -9 pid

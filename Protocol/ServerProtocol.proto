@@ -1,0 +1,109 @@
+package proto.serverproto;
+
+//
+message ProtocolNetResponse {
+	required int32 cmd = 1;
+	optional ConnectToServerResponse connectToServerResponse = 2;
+	optional CreateRoomResponse createRoomResponse = 3;
+	optional GetRoomListResponse getRoomListResponse = 4;
+	optional JoinRoomResponse joinRoomResponse = 5;
+	optional ExitRoomResponse exitRoomResponse = 6;
+	optional RoomOwnerExitResponse roomOwnerExitResponse = 7;
+	optional RoomOwnerReadyStartGameResponse roomOwnerReadyStartGameResponse = 8;
+	optional RoomOwnerStartGameResponse roomOwnerStartGameResponse = 9;
+	//optional PlayerGameDataResponse playerGameDataResponse = 10;
+	optional GameResultResponse gameResultResponse = 10;
+	optional PlayerReloadSceneResponse playerReloadSceneResponse = 11;
+}
+
+message ConnectToServerResponse {
+	required int32 fd = 1;
+}
+
+//回应玩家的创建房间请求这里创建房间需要的是一个客户端的fd
+message CreateRoomResponse {
+	required bool result = 1;
+}
+
+message SinglePlayerInfo {
+	required string userName = 1;
+	required int32 fd = 2;
+}
+
+message SimpleRoomInfo {
+	required string roomOwner = 1;
+	required int32 currentManCount = 2;
+	required int32 maxManCount = 3;
+	required string roomName = 4;
+	required int32 roomOwnerFd = 5;
+}
+
+//返回用户请求房间列表
+message GetRoomListResponse {
+	required bool result = 1;
+	optional int32 roomCount = 2;
+	repeated SimpleRoomInfo roomInfo = 4;
+}
+
+//加入房间请求回应 成功的话想所有玩家发送
+message JoinRoomResponse {
+	required bool result = 1;
+	optional int32 manCount = 2;
+	repeated SinglePlayerInfo playerInfo = 3;
+	optional int32 roomOwnerFd = 4;
+}
+
+//一个玩家退出房间 成功的话向所有玩家发送
+message ExitRoomResponse {
+	required bool result = 1;
+	required int32 fd = 2;
+}
+
+//房主退出房间回应向所有玩家发送
+message RoomOwnerExitResponse {
+	required bool result = 1;
+	//fd是房主的fd
+	required int32 fd = 2;
+}
+
+//返回给所有人告知他们已经可以开始游戏了 玩家就可以在界面中看到一些提示信息
+message RoomOwnerReadyStartGameResponse {
+	required bool result = 1;
+}
+
+//由主机决定当等待一定时间后发送信息，服务器向所有客户端发送这个数据告知结果
+message RoomOwnerStartGameResponse {
+	required bool result = 1;
+	required int32 seed = 2;
+	optional float maxSpeed = 3;
+	optional float speed = 4;
+	optional int32 maxPower = 5;
+	optional int32 power = 6;
+	optional int32 bubbleCount = 7;
+	optional int32 maxBubbleCount = 8;
+	optional float boomTime = 9;
+	optional float maxDistance = 10;
+	optional float joystickPercent = 11;
+	repeated PlayerGameInitInfo playerGameInitInfo = 12;
+}
+
+message PlayerGameInitInfo{
+	required int32 fd = 1;
+	required float posX = 2;
+	required float posY = 3;
+	optional string posName = 4;
+}
+
+//服务器负责数据的转发
+//message PlayerGameDataResponse {
+//	optional bytes data = 1;
+//}
+
+//游戏结果
+message GameResultResponse {
+	required bool result = 1;
+}
+
+message PlayerReloadSceneResponse{
+	required bool result = 1;
+}
